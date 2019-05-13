@@ -1,1 +1,2 @@
-print("Commit")
+contactos = {"Nombre":{}, "Apellido":{}, "Teléfono": {}}
+
