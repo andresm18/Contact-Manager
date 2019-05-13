@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Estructura de contactos
 contactos = [{"Nombre": [], "Apellido": [], "Teléfono": []}]
 
@@ -8,3 +9,7 @@ def add_contact(nombre, apellido, telefono):
     return(add_contact)
 
 
+=======
+print("Commit")
+print ("Prueba")
+>>>>>>> eb09b2df7413013a3184205c1a719f5a2533a9b0
