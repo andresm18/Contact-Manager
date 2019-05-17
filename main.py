@@ -17,6 +17,5 @@ for agregar in range(cant_new_contacts):
 contact_manager.listcontacts()
 ### BORRAR CONTACTOS 
 print("Borrar contactos")
-nombre = input("Ingrese el nombre: ")
-apellido = input("Ingrese el apellido: ")
-contact_manager.remove_contact(nombre,apellido)
+nom_ap = input("Ingrese el nombre y apellido: ")
+contact_manager.remove_contact(nom_ap)
