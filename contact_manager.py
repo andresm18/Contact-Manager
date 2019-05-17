@@ -15,18 +15,21 @@ def listcontacts():
 listcontacts()
 
 #Remover contactos
-def remove_contact(nombre,apellido):
+def remove_contact(nom_ap):
+	list_nom_ap = nom_ap.split(" ")
+	ult_list = len(list_nom_ap)
 	for i in contactos:
 		for (k,v) in i.items():
-			if v == nombre:
+			if v == list_nom_ap[0]:
 				a = contactos.index(i)
-				print(a)
-			if v == apellido:
+				print(a, "a")
+		for (k,v) in i.items():
+			if v == nom_ap[ult_list]:
 				b = contactos.index(i)
-				print(b)
-				contactos.pop(b)
+				print(b, "b")
+	if a == b:
+		contactos.pop(b)
+				
 	listcontacts()
 
-					
-			#if casilla == nombre:
 	
