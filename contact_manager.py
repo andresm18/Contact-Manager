@@ -11,7 +11,7 @@ def add_contact(nombre, apellido, telefono):
 def listcontacts():
 	print("Contactos:")
 	for i in contactos:
-		print("\n{}\n".format(i))
+		print("-----------------\n", i["Nombre"], i["Apellido"], i["Teléfono"])
 listcontacts()
 
 #Remover contactos
