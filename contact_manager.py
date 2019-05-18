@@ -32,4 +32,15 @@ def remove_contact(nom_ap):
 				
 	listcontacts()
 
-	
+##Fase 2:
+filename = "InitialContacts.txt"
+def lee_file(filename):
+	with open(filename) as f:
+		fcont = f.readlines()
+		for i in fcont:
+			info = i.split(',')
+			nombre = info[0]
+			apellido = info[1]
+			telefono = info[2]
+			contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
+lee_file(filename)
