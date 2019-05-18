@@ -44,3 +44,11 @@ def lee_file(filename):
 			telefono = info[2]
 			contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
 lee_file(filename)
+
+##Funcion para listar contactos en orden alfabetico con base a apellido
+def listcontacts_or():
+	print("Contactos:")
+	contactos_ordenado = sorted(contactos, key=lambda k: k['Apellido']) 
+	for i in contactos_ordenado:
+		print("-----------------\n", i["Nombre"], i["Apellido"], i["Telefono"])
+listcontacts_or()
