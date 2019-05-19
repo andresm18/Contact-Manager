@@ -178,15 +178,4 @@ def loadFromFile():
 		listcontacts_or()
 #loadFromFile()
 
-# List all files in a directory using os.listdir
-# basepath = 'C:\\Users\\Andres M\\Desktop'
-# for entry in os.listdir(basepath):
-#     if os.path.isfile(os.path.join(basepath, entry)):
-#         print(entry)
-
-# filename_prueb = "maspruebas.txt"
-# exists=os.path.isfile(filename_prueb)
-# if exists:
-# 	print("s")
-# else:
-# 	print('n')
+#Fase 6
