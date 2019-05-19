@@ -1,3 +1,4 @@
+import time
 ### CODE
 
 # Función para imprimir el menú
@@ -6,7 +7,7 @@ def menu():
     print("----------------- Contactos ---------------")
     print("What you want to do?")
     print("1. Add Contact")
-    print("2. List Contactc")
+    print("2. List Contacts")
     print("3. Delete contact")
     
 
@@ -37,10 +38,8 @@ def listcontacts():
     print("Contactos:")
     for i in contactos:
         print("---------------------------")
-        print(i["Nombre"])
-        print(i["Apellido"])
+        print(i["Nombre"], i["Apellido"])
         print(i["Teléfono"])
- 
 
 #Remover contactos (DELETE CONTACT)
 def remove_contact(nom_ap):
@@ -62,8 +61,9 @@ def remove_contact(nom_ap):
 
 ##Fase 2:
 filename = "InitialContacts.txt"
-def lee_file(filename):
-	with open(filename) as f:
+def lee_file(file_name = "InitialContacts.txt"):
+	file_name = file_name + ".txt"
+	with open(file_name) as f:
 		fcont = f.readlines()
 		for i in fcont:
 			info = i.split(',')
@@ -80,3 +80,37 @@ def listcontacts_or():
 	for i in contactos_ordenado:
 		print("-----------------\n", i["Nombre"], i["Apellido"], i["Telefono"])
 #listcontacts_or()
+
+#CONTACT ID
+id_contactos = {}
+def contact_id():
+	num_id = 1
+	for i in contactos:
+		id_contactos[num_id] = i
+		num_id = num_id +1
+	print(id_contactos)
+
+# CALL CONTACT
+def call_contact(call_cont):
+	for i in id_contactos:
+		if i == call_cont:
+			contact = id_contactos[i]
+			try:
+				print("\n    Llamando...")
+				print(contact["Nombre"], contact["Apellido"])
+				print(contact["Telefono"])
+				time.sleep(60)
+			except KeyboardInterrupt:
+				pass
+
+# MESSAGE CONTACT
+def msg_contact(msg_cont):
+	list_msg = msg_cont.split(" ")
+	num = 0
+	for i in id_contactos:
+		for k,v in i.items():
+			if v == list_msg[num]:
+				print("a")
+			num += 1
+
+#Fase 4 
