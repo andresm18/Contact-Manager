@@ -19,7 +19,7 @@ def mostrar_menu():
         menu()
 
     if show_menu == ("no"):
-        exit()
+        pass
 
 
 ##Fase 1:
