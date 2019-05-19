@@ -171,7 +171,7 @@ def loadFromFile():
 				telefono = info[2]
 				contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
 	except:
-		print("Error el archivo de existe o no fue encontrado")
+		print("Error el archivo que quiere acceder no existe o no fue encontrado")
 	else:
 		listcontacts_or()
 #loadFromFile()
