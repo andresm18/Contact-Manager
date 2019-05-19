@@ -26,30 +26,36 @@ while opt != 10:
 
 
     if opt == 3:
+        print("")
         nom_ap = input("Ingrese el nombre y apellido del contacto a eliminar: ")
+        print("")
         contact_manager.remove_contact(nom_ap)
 
 
     if opt == 4:
-        print("AAAAAAAAAAAAAAAAAAAA")
+        print("")
         file_name = input("Ingrese el nombre del documento: ")
         contact_manager.lee_file(file_name)
 
 
     if opt == 5:
+        print("")
         contact_manager.listcontacts_or()
 
 
     if opt == 6:
+        print("")
         contact_manager.contact_id()   
 
 
     if opt == 7:
+        print("")
         call_cont = int(input("A que usuario desea llamar? "))
         contact_manager.call_contact(call_cont)
 
 
     if opt == 8:
+        print("")
         msg_cont = input("A quienes desea enviar un mensaje? ")
         contact_manager.msg_contact(msg_cont)
 
