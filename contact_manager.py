@@ -182,9 +182,12 @@ def loadFromFile():
 #Fase 6
 #GET
 URL = "https://tinyurl.com/yygujcbg"
+gid = input("Ingrese GID: ")
+params = {"gid":gid}
 res = requests.get(URL)
 data = res.json
 print(data[:])
 
 #POST
-res = requests.post(URL)
+data_de_envio = contactos
+post_res = requests.post(url = URL, params = params, data = data_de_envio)
