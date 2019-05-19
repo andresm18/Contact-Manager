@@ -144,3 +144,22 @@ def msg_contact(msg_cont):
         #   num += 1
 
 #Fase 4 
+import os
+#obtengo filename de usuario
+# genero path del file
+#hago open el file y utilizo funcion de fase 2
+
+
+
+# List all files in a directory using os.listdir
+# basepath = 'C:\\Users\\Andres M\\Desktop'
+# for entry in os.listdir(basepath):
+#     if os.path.isfile(os.path.join(basepath, entry)):
+#         print(entry)
+
+# filename_prueb = "maspruebas.txt"
+# exists=os.path.isfile(filename_prueb)
+# if exists:
+# 	print("s")
+# else:
+# 	print('n')
