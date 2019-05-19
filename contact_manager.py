@@ -19,7 +19,7 @@ def menu():
 def mostrar_menu():
     try:
         print("Do you want to see the menu again? ")
-        print("Yes/No")
+        print("Yes/NoO")
         show_menu = input("--> ")
         show_menu.lower()
         print("")
@@ -66,40 +66,42 @@ def listcontacts():
 def remove_contact(nom_ap):
     list_nom_ap = nom_ap.split(" ")
     ult_list = len(list_nom_ap)
-    for i in contactos:
-        for (k,v) in i.items():
-            if v == list_nom_ap[0]:
-                a = contactos.index(i)
-        for (k,v) in i.items():
-            if v == nom_ap[ult_list]:
-                b = contactos.index(i)
-    if a == b:
-        contactos.pop(b)
-                
-    listcontacts()
-   
-
+    try:
+        for i in contactos:
+            for (k,v) in i.items():
+                if v == list_nom_ap[0]:
+                    a = contactos.index(i)
+            for (k,v) in i.items():
+                if v == nom_ap[ult_list]:
+                    b = contactos.index(i)
+        if a == b:
+            contactos.pop(b)
+        listcontacts()
+    except UnboundLocalError:
+        print("Error usuario no enontrado")
+        mostrar_menu()
 
 ##Fase 2:
-filename = "InitialContacts.txt"
 def lee_file(file_name = "InitialContacts.txt"):
-    file_name = file_name 
-    with open(file_name) as f:
-        fcont = f.readlines()
-        for i in fcont:
-            info = i.split(',')
-            nombre = info[0]
-            apellido = info[1]
-            telefono = info[2]
-            contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
+    try:
+        with open(file_name) as f:
+            fcont = f.readlines()
+            for i in fcont:
+                info = i.split(',')
+                nombre = info[0]
+                apellido = info[1]
+                telefono = info[2]
+                contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
+    except FileNotFoundError:
+        print("Error Documento No Encotrado")
+        mostrar_menu()
 #lee_file(filename)
 
 
 ##Funcion para listar contactos en orden alfabetico con base a apellido
 def listcontacts_or():
 	print("Contactos:")
-	lista_a_ordenar = contactos
-	contactos_ordenado = sorted(lista_a_ordenar, key=lambda k: k['Apellido'])
+	contactos_ordenado = sorted(contactos, key=lambda k: k['Apellido'])
 	for i in contactos_ordenado:
 		print("----------------------------")
 		print(i["Nombre"], i["Apellido"])
