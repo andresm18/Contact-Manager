@@ -182,5 +182,9 @@ def loadFromFile():
 #Fase 6
 #GET
 URL = "https://tinyurl.com/yygujcbg"
+res = requests.get(URL)
+data = res.json
+print(data[:])
 
 #POST
+res = requests.post(URL)
