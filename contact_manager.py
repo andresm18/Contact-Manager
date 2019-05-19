@@ -3,7 +3,7 @@ import time
 
 # Función para imprimir el menú
 def menu():
-    print("------Contacts------")
+    print("------------ Contacts ------------\n")
     print("What do you want to do?")
     print("1. Add Contact")
     print("2. List Contact")
@@ -16,17 +16,22 @@ def menu():
 
 # Función para preguntar si quiere ver el menú de nuevo
 def mostrar_menu():
-    print("Do you want to see the menu again? ")
-    print("Yes/No")
-    show_menu = input("-->")
-    show_menu.lower()
-    if show_menu == "yes":
-        menu()
-    elif show_menu == "no":
-        pass
-    else:
-        print("ERROR 'Yes/No'\n")
-        menu()
+	print("Do you want to see the manu again? ")
+	print("Yes/No")
+	show_menu = input("--> \n")
+	show_menu.lower()
+	
+	if show_menu == ("yes"):
+		menu()
+	
+	elif show_menu == ("no"):
+		exit()
+	
+	else:
+		print("ERROR, 'Yes/No'")
+		show_menu = input("--> ")
+		show_menu.lower()
+		menu()
 
 
 ##Fase 1:
@@ -45,11 +50,13 @@ def add_contact(nombre,apellido,telefono):
 
 # Pretty print (LIST CONTACT)
 def listcontacts():
-    print("Contactos:")
-    for i in contactos:
-        print("---------------------------")
-        print(i["Nombre"], i["Apellido"])
-        print(i["Telefono"])
+	print("Contactos:")
+	for i in contactos:
+		print("----------------------------")
+		print(i["Nombre"])
+		print(i["Apellido"])
+		print(i["Telefono"])
+		print("")
 
 #Remover contactos (DELETE CONTACT)
 def remove_contact(nom_ap):
