@@ -1,39 +1,41 @@
 import contact_manager
-
-## MENU
 contact_manager.menu()
-opt = input("--> ")
+opt = int(input(" opcion "))
+while opt != 10:
+    if opt == 1:
+        cant_new_contacts = int(input("Ingrese la cantidad de contactos que desea añadir: "))
+        print("")
+        for agregar in range(cant_new_contacts):
+            nombre = input("Ingrese el nombre: ")
+            apellido = input("Ingrese el apellido: ")
+            try:
+                telefono = int(input("Ingrese el telefono: "))
+            except ValueError:
+                print("Error no ingreso numeros")
+                telefono = int(input("Ingrese el telefono: "))
+            print("\n")
+            contact_manager.add_contact(nombre, apellido, telefono)    
+    if opt == 2:
+        print("")
+        contact_manager.listcontacts()
+    if opt == 3:
+        nom_ap = input("Ingrese el nombre y apellido del contacto a eliminar: ")
+        contact_manager.remove_contact(nom_ap)
+    if opt == 4:
+        print("AAAAAAAAAAAAAAAAAAAA")
+        file_name = input("Ingrese el nombre del documento: ")
+        contact_manager.lee_file(file_name)
+    if opt == 5:
+        contact_manager.listcontacts_or()
+    if opt == 6:
+        contact_manager.contact_id()   
+    if opt == 7:
+        call_cont = int(input("A que usuario desea llamar? "))
+        contact_manager.call_contact(call_cont)
+    if opt == 8:
+        msg_cont = input("A quienes desea enviar un mensaje? ")
+        contact_manager.msg_contact(msg_cont)
 
-# ADD CONTACT
-if opt == ("1"):
-    print("\n")
-    cant_new_contacts = int(input("Ingrese la cantidad de contactos que desea añadir: "))
-    print("")
-
-for agregar in range(cant_new_contacts):
-    nombre = input("Ingrese el nombre: ")
-    apellido = input("Ingrese el apellido: ")
-    telefono = input("Ingrese el telefono: ")
-    print("\n")
-    # llamar la función para agregar el nuevo contacto
-    contact_manager.add_contact(nombre, apellido, telefono)
-
-contact_manager.mostrar_menu()
-opt = input("--> ")
-
-# LIST CONTACT
-if opt == ("2"):
-    print("")
-    contact_manager.listcontacts()
-contact_manager.mostrar_menu()
-opt = input("--> ")
-
-# DELETE CONTACT
-if opt == ("3"):
-    nom_ap = input("Ingrese el nombre y apellido del contacto a eliminar: ")
-    contact_manager.remove_contact(nom_ap)
-    
-contact_manager.mostrar_menu()
-opt = input("--> ")
-
-
+    contact_manager.mostrar_menu()
+    opt = int(input(" opcion "))
+print("Nos vemos!")
