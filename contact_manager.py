@@ -62,7 +62,7 @@ def remove_contact(nom_ap):
 ##Fase 2:
 filename = "InitialContacts.txt"
 def lee_file(file_name = "InitialContacts.txt"):
-	file_name = file_name + ".txt"
+	file_name = file_name 
 	with open(file_name) as f:
 		fcont = f.readlines()
 		for i in fcont:
@@ -76,7 +76,8 @@ def lee_file(file_name = "InitialContacts.txt"):
 ##Funcion para listar contactos en orden alfabetico con base a apellido
 def listcontacts_or():
 	print("Contactos:")
-	contactos_ordenado = sorted(contactos, key=lambda k: k['Apellido']) 
+	lista_a_ordenar = contactos
+	contactos_ordenado = sorted(lista_a_ordenar, key=lambda k: k['Apellido']) 
 	for i in contactos_ordenado:
 		print("-----------------\n", i["Nombre"], i["Apellido"], i["Telefono"])
 #listcontacts_or()
