@@ -17,25 +17,27 @@ def menu():
 
 # Función para preguntar si quiere ver el menú de nuevo
 def mostrar_menu():
-	print("Do you want to see the manu again? ")
-	print("Yes/No")
-	show_menu = input("--> ")
-	show_menu.lower()
-	print("")
-	
-	if show_menu == ("yes"):
-		menu()
-	
-	elif show_menu == ("no"):
-		exit()
-	
-	else:
-		print("ERROR, 'Yes/No'")
-		show_menu = input("--> ")
-		print("")
-		show_menu.lower()
-		menu()
-
+    try:
+        print("Do you want to see the menu again? ")
+        print("Yes/No")
+        show_menu = input("--> ")
+        show_menu.lower()
+        print("")
+    except ValueError:
+        print("Error ingrese un numero")
+        show_menu = input("--> ")
+        show_menu.lower()
+        print("")
+    if show_menu == ("yes"):
+        menu()
+    elif show_menu == ("no"):
+        pass 
+    else:
+        print("Error, 'Yes/No'")
+        show_menu = input("-->")
+        print("")
+        show_menu.lower()
+        menu()
 
 ##Fase 1:
 # Estructura de contactos
@@ -56,8 +58,7 @@ def listcontacts():
 	print("Contactos:")
 	for i in contactos:
 		print("----------------------------")
-		print(i["Nombre"])
-		print(i["Apellido"])
+		print(i["Nombre"], i["Apellido"])
 		print(i["Telefono"])
 		print("")
 
