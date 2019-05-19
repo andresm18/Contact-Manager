@@ -50,11 +50,9 @@ def remove_contact(nom_ap):
 		for (k,v) in i.items():
 			if v == list_nom_ap[0]:
 				a = contactos.index(i)
-				print(a, "a")
 		for (k,v) in i.items():
 			if v == nom_ap[ult_list]:
 				b = contactos.index(i)
-				print(b, "b")
 	if a == b:
 		contactos.pop(b)
 				
