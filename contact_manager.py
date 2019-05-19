@@ -49,7 +49,7 @@ def listcontacts():
     for i in contactos:
         print("---------------------------")
         print(i["Nombre"], i["Apellido"])
-        print(i["Teléfono"])
+        print(i["Telefono"])
 
 #Remover contactos (DELETE CONTACT)
 def remove_contact(nom_ap):
@@ -83,6 +83,7 @@ def lee_file(file_name = "InitialContacts.txt"):
             contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
 #lee_file(filename)
 
+
 ##Funcion para listar contactos en orden alfabetico con base a apellido
 def listcontacts_or():
     print("Contactos:")
@@ -92,6 +93,9 @@ def listcontacts_or():
         print("-----------------\n", i["Nombre"], i["Apellido"], i["Telefono"])
 #listcontacts_or()
 
+
+## Fase 3
+
 #CONTACT ID
 id_contactos = {}
 def contact_id():
@@ -100,6 +104,7 @@ def contact_id():
         id_contactos[num_id] = i
         num_id = num_id +1
     print(id_contactos)
+
 
 # CALL CONTACT
 def call_contact(call_cont):
@@ -113,6 +118,7 @@ def call_contact(call_cont):
                 time.sleep(60)
             except KeyboardInterrupt:
                 pass
+
 
 # MESSAGE CONTACT
 def msg_contact(msg_cont):
