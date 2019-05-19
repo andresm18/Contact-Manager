@@ -1,12 +1,20 @@
 import contact_manager
 
 contact_manager.menu()
-opt = int(input("--> "))
+try:
+    opt = int(input("--> "))
+except ValueError:
+    print("Error ingrese una opcion")
+    opt = int(input("--> "))
 
 
 while opt != 10:
     if opt == 1:
-        cant_new_contacts = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
+        try:
+            cant_new_contacts = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
+        except ValueError:
+            print(" Error ingrese una cantidad")
+            cant_new_contacts = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
         print("")
         for agregar in range(cant_new_contacts):
             nombre = input("Ingrese el nombre: ")
@@ -60,5 +68,9 @@ while opt != 10:
         contact_manager.msg_contact(msg_cont)
 
     contact_manager.mostrar_menu()
-    opt = int(input("--> "))
+    try:
+        opt = int(input("-->"))
+    except ValueError:
+        print("Error ingrese una opcion")
+        opt = int(input("--> "))
 print("Nos vemos!")
