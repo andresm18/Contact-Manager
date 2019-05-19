@@ -4,17 +4,23 @@
 # Estructura de contactos
 contactos = []
 
-# Función para añadir contacto 
+# Función para añadir contacto (ADD CONTACTS)
 def add_contact(nombre, apellido, telefono):
     contactos.append({"Nombre": nombre, "Apellido": apellido, "Teléfono": telefono})
+    #mostrar_menu()
 
+
+# Pretty print (LIST CONTACT)
 def listcontacts():
-	print("Contactos:")
-	for i in contactos:
-		print("-----------------\n", i["Nombre"], i["Apellido"], i["Teléfono"])
-listcontacts()
+    print("Contactos:")
+    for i in contactos:
+        print("---------------------------")
+        print(i["Nombre"])
+        print(i["Apellido"])
+        print(i["Teléfono"])
+    #mostrar_menu()
 
-#Remover contactos
+#Remover contactos (DELETE CONTACT)
 def remove_contact(nom_ap):
 	list_nom_ap = nom_ap.split(" ")
 	ult_list = len(list_nom_ap)
@@ -31,6 +37,8 @@ def remove_contact(nom_ap):
 		contactos.pop(b)
 				
 	listcontacts()
+    #mostrar_menu()
+
 
 ##Fase 2:
 filename = "InitialContacts.txt"
@@ -43,7 +51,7 @@ def lee_file(filename):
 			apellido = info[1]
 			telefono = info[2]
 			contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
-lee_file(filename)
+#lee_file(filename)
 
 ##Funcion para listar contactos en orden alfabetico con base a apellido
 def listcontacts_or():
@@ -51,4 +59,4 @@ def listcontacts_or():
 	contactos_ordenado = sorted(contactos, key=lambda k: k['Apellido']) 
 	for i in contactos_ordenado:
 		print("-----------------\n", i["Nombre"], i["Apellido"], i["Telefono"])
-listcontacts_or()
+#listcontacts_or()
