@@ -113,11 +113,16 @@ def listcontacts_or():
 #CONTACT ID
 id_contactos = {}
 def contact_id():
-    num_id = 1
-    for i in contactos:
-        id_contactos[num_id] = i
-        num_id = num_id +1
-    print(id_contactos)
+	num_id = 0
+	print("Contactos:")
+	for i in contactos:
+		id_contactos[num_id] = i
+		num_id = num_id + 1
+		print("----------------------------")
+		print(num_id,i["Nombre"],",",i["Apellido"],",",i["Telefono"] )
+		print("")
+		
+    #print(id_contactos)
 
 
 # CALL CONTACT
@@ -168,7 +173,8 @@ def loadFromFile():
 		print("Error el archivo de existe o no fue encontrado")
 	else:
 		listcontacts_or()
-loadFromFile()
+#loadFromFile()
+
 # List all files in a directory using os.listdir
 # basepath = 'C:\\Users\\Andres M\\Desktop'
 # for entry in os.listdir(basepath):
