@@ -1,5 +1,6 @@
 import time
 import os
+import requests
 ### CODE
 
 # Función para imprimir el menú
@@ -179,3 +180,7 @@ def loadFromFile():
 #loadFromFile()
 
 #Fase 6
+#GET
+URL = "https://tinyurl.com/yygujcbg"
+
+#POST
