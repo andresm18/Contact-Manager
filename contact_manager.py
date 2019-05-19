@@ -1,5 +1,27 @@
 ### CODE
 
+# Función para imprimir el menú
+def menu():
+    print("")
+    print("----------------- Contactos ---------------")
+    print("What you want to do?")
+    print("1. Add Contact")
+    print("2. List Contactc")
+    print("3. Delete contact")
+    
+
+# Función para preguntar si quiere ver el menú de nuevo
+def mostrar_menu():
+    print("Do you want to see the menu again?")
+    print("Yes/No")
+    show_menu = input("--> ")
+    if show_menu == ("yes"):
+        menu()
+
+    if show_menu == ("no"):
+        exit()
+
+
 ##Fase 1:
 # Estructura de contactos
 contactos = []
@@ -7,7 +29,7 @@ contactos = []
 # Función para añadir contacto (ADD CONTACTS)
 def add_contact(nombre, apellido, telefono):
     contactos.append({"Nombre": nombre, "Apellido": apellido, "Teléfono": telefono})
-    #mostrar_menu()
+    
 
 
 # Pretty print (LIST CONTACT)
@@ -18,7 +40,7 @@ def listcontacts():
         print(i["Nombre"])
         print(i["Apellido"])
         print(i["Teléfono"])
-    #mostrar_menu()
+ 
 
 #Remover contactos (DELETE CONTACT)
 def remove_contact(nom_ap):
@@ -37,7 +59,7 @@ def remove_contact(nom_ap):
 		contactos.pop(b)
 				
 	listcontacts()
-    #mostrar_menu()
+   
 
 
 ##Fase 2:
