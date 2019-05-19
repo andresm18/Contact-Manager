@@ -18,8 +18,9 @@ def menu():
 def mostrar_menu():
 	print("Do you want to see the manu again? ")
 	print("Yes/No")
-	show_menu = input("--> \n")
+	show_menu = input("--> ")
 	show_menu.lower()
+	print("")
 	
 	if show_menu == ("yes"):
 		menu()
@@ -30,6 +31,7 @@ def mostrar_menu():
 	else:
 		print("ERROR, 'Yes/No'")
 		show_menu = input("--> ")
+		print("")
 		show_menu.lower()
 		menu()
 
@@ -93,11 +95,15 @@ def lee_file(file_name = "InitialContacts.txt"):
 
 ##Funcion para listar contactos en orden alfabetico con base a apellido
 def listcontacts_or():
-    print("Contactos:")
-    lista_a_ordenar = contactos
-    contactos_ordenado = sorted(lista_a_ordenar, key=lambda k: k['Apellido']) 
-    for i in contactos_ordenado:
-        print("-----------------\n", i["Nombre"], i["Apellido"], i["Telefono"])
+	print("Contactos:")
+	lista_a_ordenar = contactos
+	contactos_ordenado = sorted(lista_a_ordenar, key=lambda k: k['Apellido'])
+	for i in contactos_ordenado:
+		print("----------------------------")
+		print(i["Nombre"], i["Apellido"])
+		print(i["Telefono"])
+		print("")
+
 #listcontacts_or()
 
 
