@@ -1,4 +1,5 @@
 import time
+import os
 ### CODE
 
 # Función para imprimir el menú
@@ -144,13 +145,24 @@ def msg_contact(msg_cont):
         #   num += 1
 
 #Fase 4 
-import os
-#obtengo filename de usuario
-# genero path del file
-#hago open el file y utilizo funcion de fase 2
-
-
-
+def loadFromFile():
+	externalfile = input("Escriba el nombre exacto del archivo con un backslash al principio: ")
+	try:
+		nombre_compelto_de_file = "C:\\Users\\Andres M\\Desktop"
+		path = nombre_compelto_de_file + externalfile
+		with open(path, 'r') as f:
+			fcont = f.readlines()
+			for i in fcont:
+				info = i.split(',')
+				nombre = info[0]
+				apellido = info[1]
+				telefono = info[2]
+				contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
+	except:
+		print("Error el archivo de existe o no fue encontrado")
+	else:
+		listcontacts_or()
+loadFromFile()
 # List all files in a directory using os.listdir
 # basepath = 'C:\\Users\\Andres M\\Desktop'
 # for entry in os.listdir(basepath):
