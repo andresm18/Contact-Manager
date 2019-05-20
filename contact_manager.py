@@ -233,13 +233,14 @@ def loadFromFile():
 #GET
 URL = "https://tinyurl.com/yygujcbg"
 gid = input("Ingrese GID: ")
+payload = {"gid":gid}
 def get():
-	response = requests.get(URL,params= gid)
+	response = requests.get(URL,params= payload)
 	print(response.json())
 # get()
 
 def post():
-	response = requests.post(URL, json= contactos)
-	print(response.json)
+	response = requests.post(URL, data=contactos)
+	print(response.json())
 # post()
 
