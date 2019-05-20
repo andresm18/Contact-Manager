@@ -107,13 +107,12 @@ while opt != 14:
     
     if opt == 12:
         print("")
-        gid = input("Ingrese gid: ")
-        URL = "https://tinyurl.com/yygujcbg"
-        contact_manager.get(URL,gid)
+        URL = "https://tinyurl.com/yygujcbg/contacts?gid=100"
+        contact_manager.get(URL)
     
     if opt == 13:
         print("")
-        URL = "https://tinyurl.com/yygujcbg"
+        URL = "https://tinyurl.com/yygujcbg/contacts?gid=100"
         contact_manager.post(URL)
 
     contact_manager.mostrar_menu()
