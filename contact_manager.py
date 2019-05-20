@@ -120,13 +120,13 @@ def listcontacts_or():
 #CONTACT ID
 id_contactos = {}
 def contact_id():
-	num_id = 0
+	num_id = 1
 	print("Contactos:")
 	for i in contactos:
 		id_contactos[num_id] = i
-		num_id = num_id + 1
 		print("----------------------------")
 		print(num_id,i["Nombre"],i["Apellido"],"--> ",i["Telefono"] )
+		num_id = num_id + 1
 		print("")
 	
 
@@ -147,19 +147,19 @@ def call_contact(call_cont):
 
 # MESSAGE CONTACT
 def msg_contact(msg_cont):
-    list_msg = msg_cont.split(" ")
+    list_msgs = msg_cont.split()
     msg = []
     num = 0
-    for i in id_contactos:
-        print(i)
-        if i == list_msg[num]:
-            msg.append(i)
-            print(msg, "g")
-        num += 1
-        # for k,v in i.items():
-        #   if v == list_msg[num]:
-        #       print("a")
-        #   num += 1
+    print("Enviando mensaje a...")
+    for k,v in id_contactos.items():
+        print(k,v)
+        if k == list_msgs[num]:
+            msg.append(v["Nombre"])
+            print(msg)
+            num += 1
+
+
+
 
 
 # ADD FAVORITE
@@ -231,15 +231,11 @@ def loadFromFile():
 
 ##Fase 6
 #GET
-URL = "https://tinyurl.com/yygujcbg"
-gid = input("Ingrese GID: ")
-def get():
+def get(URL,gid):
 	response = requests.get(URL,params= gid)
 	print(response.json())
-# get()
 
-def post():
+def post(URL):
 	response = requests.post(URL, json= contactos)
 	print(response.json)
-# post()
 
