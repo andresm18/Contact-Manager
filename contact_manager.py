@@ -83,8 +83,8 @@ def remove_contact(nom_ap):
             for (k,v) in i.items():
                 if v == nom_ap[ult_list]:
                     b = contactos.index(i)
-                    if a == b:
-                        contactos.pop(b)
+        if a == b:
+            contactos.pop(b)
         listcontacts()
     except UnboundLocalError and IndexError:
         print("\nERROR, usuario no enontrado\n")
