@@ -180,7 +180,7 @@ def add_favorite(nombre,apellido,telefono):
 
 # Get Favorite (pretty print)
 def get_favorite():
-	print("Favoritos::")
+	print("Favoritos:")
 	for i in favoritos:
 		print("----------------------------")
 		print(i["Nombre"], i["Apellido"])
