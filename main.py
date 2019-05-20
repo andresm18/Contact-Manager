@@ -107,12 +107,12 @@ while opt != 15:
     
     if opt == 12:
         print("")
-        URL = "https://tinyurl.com/yygujcbg/contacts?gid=100"
+        URL = "https://tinyurl.com/yygujcbg/contacts?gid=1000"
         contact_manager.get(URL)
     
     if opt == 13:
         print("")
-        URL = "https://tinyurl.com/yygujcbg/contacts?gid=100"
+        URL = "https://tinyurl.com/yygujcbg/contacts?gid=5"
         contact_manager.post(URL)
 
     if opt == 14:

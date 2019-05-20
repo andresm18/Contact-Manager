@@ -61,15 +61,15 @@ def add_contact(nombre,apellido,telefono):
     if apellido == "":
         print("No hay apellido")
     apellido.title()
-    contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono" :telefono})
+    contactos.append({"FirstName": nombre, "LastName": apellido, "Phone" :telefono})
 
 # Pretty print (LIST CONTACT)
 def listcontacts():
 	print("Contactos:")
 	for i in contactos:
 		print("----------------------------")
-		print(i["Nombre"], i["Apellido"])
-		print(i["Telefono"])
+		print(i["FirstName"], i["LastName"])
+		print(i["Phone"])
 		print("")
 
 #Remover contactos (DELETE CONTACT)
@@ -101,7 +101,7 @@ def lee_file(file_name = "InitialContacts.txt"):
                 nombre = info[0]
                 apellido = info[1]
                 telefono = info[2]
-                contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
+                contactos.append({"FirstName": nombre, "LastName": apellido, "Phone": telefono})
     except FileNotFoundError:
         print("\nERROR, Documento No Encotrado")
         mostrar_menu()
@@ -112,8 +112,8 @@ def listcontacts_or():
 	contactos_ordenado = sorted(contactos, key=lambda k: k['Apellido'])
 	for i in contactos_ordenado:
 		print("----------------------------")
-		print(i["Nombre"], i["Apellido"])
-		print(i["Telefono"])
+		print(i["FirstName"], i["LastName"])
+		print(i["Phone"])
 		print("")
 
 
@@ -127,7 +127,7 @@ def contact_id():
 	for i in contactos:
 		id_contactos[num_id] = i
 		print("----------------------------")
-		print(num_id,i["Nombre"],i["Apellido"],"--> ",i["Telefono"] )
+		print(num_id,i["FirstName"],i["LastName"],"--> ",i["Phone"] )
 		num_id = num_id + 1
 		print("")
 	
@@ -140,8 +140,8 @@ def call_contact(call_cont):
             contact = id_contactos[i]
             try:
                 print("\n    Llamando...")
-                print(contact["Nombre"], contact["Apellido"])
-                print(contact["Telefono"])
+                print(contact["FirstName"], contact["LastName"])
+                print(contact["Phone"])
                 time.sleep(60)
             except KeyboardInterrupt:
                 pass
@@ -158,7 +158,7 @@ def msg_contact(msg_cont):
         while num < (lenght):
             for k,v in id_contactos.items():
                 if k == int(list_msgs[num]):
-                    msg.append(v["Nombre"])
+                    msg.append(v["FirstName"])
                     num = num + 1
     except IndexError:
        for i in msg:
@@ -177,8 +177,8 @@ def add_favorite(nombre,apellido,telefono):
 	if apellido == "":
 		print("No hay apellido")
 	apellido.title()
-	favoritos.append({"Nombre": nombre, "Apellido": apellido, "Telefono" :telefono})
-	contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono" :telefono})
+	favoritos.append({"FirstName": nombre, "LastName": apellido, "Phone" :telefono})
+	contactos.append({"FirstName": nombre, "LastName": apellido, "Phone" :telefono})
 
 
 # Get Favorite (pretty print with ID)
@@ -190,7 +190,7 @@ def get_favorite():
 		id_contactos_favoritos[num_id_favorites] = i
 		num_id_favorites = num_id_favorites + 1
 		print("----------------------------")
-		print(num_id_favorites, i["Nombre"], i["Apellido"],"--> ", i["Telefono"])
+		print(num_id_favorites, i["FirstName"], i["LastName"],"--> ", i["Phone"])
 		print("")
 
 # Remove from favorites
@@ -226,7 +226,7 @@ def loadFromFile():
 				nombre = info[0]
 				apellido = info[1]
 				telefono = info[2]
-				contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
+				contactos.append({"FirstName": nombre, "LastName": apellido, "Phone": telefono})
 	except:
 		print("ERROR, el archivo al que quiere acceder no existe o no fue encontrado")
 	else:
@@ -242,6 +242,6 @@ def get(URL):
     listcontacts()
 
 def post(URL):
-    data = contactos
-    response = requests.post(url= URL, json = data)
+    response = requests.post(url= URL, json= contactos)
     print(response.url)
+    print(response.status_code)
