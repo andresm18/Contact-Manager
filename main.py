@@ -86,6 +86,7 @@ while opt != 11:
             print("\n")
             contact_manager.add_favorite(nombre, apellido, telefono)
 
+
     if opt == 10:
         print("")
         contact_manager.get_favorite()
