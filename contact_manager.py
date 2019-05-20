@@ -152,15 +152,16 @@ def msg_contact(msg_cont):
     msg = []
     num = 0
     print("Enviando mensaje a...")
-    for k,v in id_contactos.items():
-        print(k,v)
-        if k == list_msgs[num]:
-            msg.append(v["Nombre"])
-            print(msg)
-            num += 1
-
-
-
+    lenght = len(list_msgs)
+    try:
+        while num < (lenght):
+            for k,v in id_contactos.items():
+                if k == int(list_msgs[num]):
+                    msg.append(v["Nombre"])
+                    num = num + 1
+    except IndexError:
+       for i in msg:
+           print("---",i,"---")
 
 
 # ADD FAVORITE
