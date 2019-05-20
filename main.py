@@ -99,13 +99,14 @@ while opt != 15:
     
     if opt == 12:
         print("")
+        gid = input("Ingrese gid: ")
         URL = "https://tinyurl.com/yygujcbg"
-        contact_manager.get()
+        contact_manager.get(URL,gid)
     
     if opt == 13:
         print("")
         URL = "https://tinyurl.com/yygujcbg"
-        contact_manager.post()
+        contact_manager.post(URL)
 
     if opt == 14:
         print("")

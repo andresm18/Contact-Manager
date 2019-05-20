@@ -233,12 +233,11 @@ def loadFromFile():
 ##Fase 6
 #GET
 def get(URL,gid):
-    gid = input("Ingrese gid: ")
     payload = {"gid":gid}
     response = requests.get(URL,params= payload)
-    print(response.json())
+    print(response.text)
 
 def post(URL):
 	response = requests.post(URL, data= contactos)
-	print(response.json())
+	print(response.text)
 
