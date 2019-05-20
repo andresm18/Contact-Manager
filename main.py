@@ -9,7 +9,7 @@ except ValueError:
     opt = int(input("--> "))
 
 
-while opt != 14:
+while opt != 15:
     if opt == 1:
         try:
             cant_new_contacts = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
@@ -114,6 +114,10 @@ while opt != 14:
         print("")
         URL = "https://tinyurl.com/yygujcbg/contacts?gid=100"
         contact_manager.post(URL)
+
+    if opt == 14:
+        print("")
+        contact_manager.loadFromFile()
 
     contact_manager.mostrar_menu()
     try:
