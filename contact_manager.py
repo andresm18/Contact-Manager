@@ -18,6 +18,7 @@ def menu():
 	print("8. Message Contacts")
 	print("9. Add to Favorite")
 	print("10. List Favorites")
+	print("11. Remove Favorite Contact")
 
 
 # Función para preguntar si quiere ver el menú de nuevo
@@ -175,7 +176,7 @@ def add_favorite(nombre,apellido,telefono):
 	contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono" :telefono})
 
 
-# Get Favorite (pretty print)
+# Get Favorite (pretty print with ID)
 id_contactos_favoritos = {}
 def get_favorite():
 	num_id_favorites = 0
@@ -186,6 +187,25 @@ def get_favorite():
 		print("----------------------------")
 		print(num_id_favorites, i["Nombre"], i["Apellido"],"--> ", i["Telefono"])
 		print("")
+
+# Remove from favorites
+def remove_favorite_contact(nom_ap):
+    list_nom_ap = nom_ap.split(" ")
+    ult_list = len(list_nom_ap)
+    try:
+        for i in favoritos:
+            for (k,v) in i.items():
+                if v == list_nom_ap[0]:
+                    a = favoritos.index(i)
+            for (k,v) in i.items():
+                if v == nom_ap[ult_list]:
+                    b = favoritos.index(i)
+                    if a == b:
+                        favoritos.pop(b)
+        get_favorite()
+    except UnboundLocalError and IndexError:
+        print("\nERROR, usuario no enontrado\n")
+        mostrar_menu()
 
 
 #Fase 4 
