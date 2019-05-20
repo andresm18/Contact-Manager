@@ -1,4 +1,5 @@
 import contact_manager
+import time
 
 contact_manager.menu()
 try:
@@ -61,11 +62,14 @@ while opt != 15:
         call_cont = int(input("A que usuario desea llamar? ingrese el contactID: "))
         contact_manager.call_contact(call_cont)
 
-
     if opt == 8:
         print("")
-        msg_cont = input("A quienes desea enviar un mensaje? ingrese el contactID: ")
+        msg_cont = input("A quienes desea enviar un mensaje? ")
         contact_manager.msg_contact(msg_cont)
+        mensaje = input("Ingresa el mensaje: ")
+        time.sleep(1)
+        print("Listo! Enviado \n")
+        time.sleep(0.5)
 
     if opt == 9:
         print("")
