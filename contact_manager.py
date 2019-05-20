@@ -238,6 +238,6 @@ def get(URL,gid):
     print(response.text)
 
 def post(URL):
-	response = requests.post(URL, data= contactos)
+	response = requests.post(URL, json= contactos)
 	print(response.text)
 
