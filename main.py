@@ -8,7 +8,7 @@ except ValueError:
     opt = int(input("--> "))
 
 
-while opt != 11:
+while opt != 12:
     if opt == 1:
         try:
             cant_new_contacts = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
@@ -90,6 +90,13 @@ while opt != 11:
     if opt == 10:
         print("")
         contact_manager.get_favorite()
+    
+    if opt == 11:
+        print("")
+        nom_ap = input("Ingrese el nombre y apellido del contacto a eliminar: ")
+        print("")
+        contact_manager.remove_favorite_contact(nom_ap)
+
 
 
 
