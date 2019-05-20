@@ -9,7 +9,7 @@ except ValueError:
     opt = int(input("--> "))
 
 
-while opt != 15:
+while opt != 14:
     if opt == 1:
         try:
             cant_new_contacts = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
@@ -116,9 +116,6 @@ while opt != 15:
         print("")
         exit()
 
-
-
-
     contact_manager.mostrar_menu()
 
     try:
@@ -127,3 +124,4 @@ while opt != 15:
         print("ERROR, ingrese una opcion")
         opt = int(input("--> "))
 print("Nos vemos!")
+exit()
