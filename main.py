@@ -112,7 +112,7 @@ while opt != 15:
     
     if opt == 13:
         print("")
-        URL = "https://tinyurl.com/yygujcbg/contacts?gid=5"
+        URL = "https://crolq57jod.execute-api.us-east-1.amazonaws.com/dev//contacts?gid=5"
         contact_manager.post(URL)
 
     if opt == 14:

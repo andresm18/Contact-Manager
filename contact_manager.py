@@ -244,4 +244,3 @@ def get(URL):
 def post(URL):
     response = requests.post(url= URL, json= contactos)
     print(response.url)
-    print(response.status_code)
