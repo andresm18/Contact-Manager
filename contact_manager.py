@@ -19,6 +19,8 @@ def menu():
 	print("9. Add to Favorite")
 	print("10. List Favorites")
 	print("11. Remove Favorite Contact")
+	print("12. HTTP Request GET")
+	print("13. HTTP Request POST")
 
 
 # Función para preguntar si quiere ver el menú de nuevo
