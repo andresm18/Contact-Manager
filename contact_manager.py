@@ -1,6 +1,6 @@
 import time
 import os
-import request
+#import request
 
 ### CODE
 
@@ -71,18 +71,18 @@ def listcontacts():
 def remove_contact(nom_ap):
     list_nom_ap = nom_ap.split(" ")
     ult_list = len(list_nom_ap)
-    #try:
-    for i in contactos:
-        for (k,v) in i.items():
-            if v == list_nom_ap[0]:
-                a = contactos.index(i)
+    try:
+        for i in contactos:
+            for (k,v) in i.items():
+                if v == list_nom_ap[0]:
+                    a = contactos.index(i)
             for (k,v) in i.items():
                 if v == nom_ap[ult_list]:
                     b = contactos.index(i)
-        if a == b:
-            contactos.pop(b)
+                    if a == b:
+                        contactos.pop(b)
         listcontacts()
-    #except UnboundLocalError:
+    except UnboundLocalError:
         print("\nERROR, usuario no enontrado\n")
         mostrar_menu()
 
@@ -100,8 +100,6 @@ def lee_file(file_name = "InitialContacts.txt"):
     except FileNotFoundError:
         print("\nERROR, Documento No Encotrado")
         mostrar_menu()
-#lee_file(filename)
-
 
 ##Funcion para listar contactos en orden alfabetico con base a apellido
 def listcontacts_or():
@@ -112,8 +110,6 @@ def listcontacts_or():
 		print(i["Nombre"], i["Apellido"])
 		print(i["Telefono"])
 		print("")
-
-#listcontacts_or()
 
 
 ## Fase 3
@@ -207,7 +203,6 @@ def loadFromFile():
 		print("ERROR, el archivo al que quiere acceder no existe o no fue encontrado")
 	else:
 		listcontacts_or()
-#loadFromFile()
 
 ##Fase 6
 #GET
