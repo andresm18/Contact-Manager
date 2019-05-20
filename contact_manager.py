@@ -1,6 +1,6 @@
 import time
 import os
-#import request
+import requests
 
 ### CODE
 
@@ -240,13 +240,4 @@ def post():
 	response = requests.post(URL, json= contactos)
 	print(response.json)
 # post()
-#URL = "https://tinyurl.com/yygujcbg"
-#gid = input("Ingrese GID: ")
-#params = {"gid":gid}
-#res = request.get(URL)
-#data = res.json
-#print(data[:])
 
-#POST
-#data_de_envio = contactos
-#post_res = requests.post(url = URL, params = params, data = data_de_envio)
