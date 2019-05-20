@@ -1,31 +1,35 @@
 import time
 import os
-import requests
+import request
+
 ### CODE
 
 # Función para imprimir el menú
 def menu():
-    print("------------ Contacts ------------\n")
-    print("What do you want to do?")
-    print("1. Add Contact")
-    print("2. List Contact")
-    print("3. Remove Contact")
-    print("4. Initialize with File")
-    print("5. Alphabetic Contacts")
-    print("6. ID your Contacts")
-    print("7. Call Contact")
-    print("8. Message Contacts")
+	print("------------ Contacts ------------\n")
+	print("What do you want to do?")
+	print("1. Add Contact")
+	print("2. List Contact")
+	print("3. Remove Contact")
+	print("4. Initialize with File")
+	print("5. Alphabetic Contacts")
+	print("6. ID your Contact")
+	print("7. Call Contact")
+	print("8. Message Contacts")
+	print("9. Add to Favorite")
+	print("10. List Favorites")
+
 
 # Función para preguntar si quiere ver el menú de nuevo
 def mostrar_menu():
     try:
         print("Do you want to see the menu again? ")
-        print("Yes/NoO")
+        print("Yes/No")
         show_menu = input("--> ")
         show_menu.lower()
         print("")
     except ValueError:
-        print("Error ingrese un numero")
+        print("ERROR, ingrese un numero")
         show_menu = input("--> ")
         show_menu.lower()
         print("")
@@ -34,8 +38,8 @@ def mostrar_menu():
     elif show_menu == ("no"):
         pass 
     else:
-        print("Error, 'Yes/No'")
-        show_menu = input("-->")
+        print("ERROR, 'Yes/No'")
+        show_menu = input("--> ")
         print("")
         show_menu.lower()
         menu()
@@ -67,19 +71,19 @@ def listcontacts():
 def remove_contact(nom_ap):
     list_nom_ap = nom_ap.split(" ")
     ult_list = len(list_nom_ap)
-    try:
-        for i in contactos:
-            for (k,v) in i.items():
-                if v == list_nom_ap[0]:
-                    a = contactos.index(i)
+    #try:
+    for i in contactos:
+        for (k,v) in i.items():
+            if v == list_nom_ap[0]:
+                a = contactos.index(i)
             for (k,v) in i.items():
                 if v == nom_ap[ult_list]:
                     b = contactos.index(i)
         if a == b:
             contactos.pop(b)
         listcontacts()
-    except UnboundLocalError:
-        print("Error usuario no enontrado")
+    #except UnboundLocalError:
+        print("\nERROR, usuario no enontrado\n")
         mostrar_menu()
 
 ##Fase 2:
@@ -94,7 +98,7 @@ def lee_file(file_name = "InitialContacts.txt"):
                 telefono = info[2]
                 contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
     except FileNotFoundError:
-        print("Error Documento No Encotrado")
+        print("\nERROR, Documento No Encotrado")
         mostrar_menu()
 #lee_file(filename)
 
@@ -125,8 +129,7 @@ def contact_id():
 		print("----------------------------")
 		print(num_id,i["Nombre"],",",i["Apellido"],",",i["Telefono"] )
 		print("")
-		
-    #print(id_contactos)
+	
 
 
 # CALL CONTACT
@@ -159,6 +162,33 @@ def msg_contact(msg_cont):
         #       print("a")
         #   num += 1
 
+
+# ADD FAVORITE
+# Estructura de contactos favoritos
+favoritos = []
+
+# Función para añadir contactos a favoritos
+def add_favorite(nombre,apellido,telefono):
+    if nombre == "":
+        print("No hay nombre")
+    nombre.title()
+    if apellido == "":
+        print("No hay apellido")
+    apellido.title()
+    favoritos.append({"Nombre": nombre, "Apellido": apellido, "Telefono" :telefono})
+
+
+# Get Favorite (pretty print)
+def get_favorite():
+	print("Favoritos::")
+	for i in favoritos:
+		print("----------------------------")
+		print(i["Nombre"], i["Apellido"])
+		print(i["Telefono"])
+		print("")
+
+
+
 #Fase 4 
 def loadFromFile():
 	externalfile = input("Escriba el nombre exacto del archivo con un backslash al principio: ")
@@ -174,20 +204,20 @@ def loadFromFile():
 				telefono = info[2]
 				contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono": telefono})
 	except:
-		print("Error el archivo que quiere acceder no existe o no fue encontrado")
+		print("ERROR, el archivo al que quiere acceder no existe o no fue encontrado")
 	else:
 		listcontacts_or()
 #loadFromFile()
 
-#Fase 6
+##Fase 6
 #GET
-URL = "https://tinyurl.com/yygujcbg"
-gid = input("Ingrese GID: ")
-params = {"gid":gid}
-res = requests.get(URL)
-data = res.json
-print(data[:])
+#URL = "https://tinyurl.com/yygujcbg"
+#gid = input("Ingrese GID: ")
+#params = {"gid":gid}
+#res = request.get(URL)
+#data = res.json
+#print(data[:])
 
 #POST
-data_de_envio = contactos
-post_res = requests.post(url = URL, params = params, data = data_de_envio)
+#data_de_envio = contactos
+#post_res = requests.post(url = URL, params = params, data = data_de_envio)
