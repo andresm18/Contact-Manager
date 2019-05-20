@@ -8,12 +8,12 @@ except ValueError:
     opt = int(input("--> "))
 
 
-while opt != 10:
+while opt != 12:
     if opt == 1:
         try:
             cant_new_contacts = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
         except ValueError:
-            print(" Error ingrese una cantidad")
+            print("ERROR, ingrese una cantidad")
             cant_new_contacts = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
         print("")
         for agregar in range(cant_new_contacts):
@@ -22,7 +22,7 @@ while opt != 10:
             try:
                 telefono = int(input("Ingrese el telefono: "))
             except ValueError:
-                print("Error, no ingreso numeros")
+                print("ERROR, no ingreso numeros")
                 telefono = int(input("Ingrese el telefono: "))
             print("\n")
             contact_manager.add_contact(nombre, apellido, telefono)    
@@ -67,10 +67,44 @@ while opt != 10:
         msg_cont = input("A quienes desea enviar un mensaje? ")
         contact_manager.msg_contact(msg_cont)
 
+    if opt == 9:
+        print("")
+        try:
+            cant_new_contacts2 = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
+        except ValueError:
+            print("ERROR, ingrese una cantidad")
+            cant_new_contacts2 = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
+        print("")
+        for agregar in range(cant_new_contacts2):
+            nombre = input("Ingrese el nombre: ")
+            apellido = input("Ingrese el apellido: ")
+            try:
+                telefono = int(input("Ingrese el telefono: "))
+            except ValueError:
+                print("ERROR, no ingreso numeros")
+                telefono = int(input("Ingrese el telefono: "))
+            print("\n")
+            contact_manager.add_favorite(nombre, apellido, telefono)
+
+
+    if opt == 10:
+        print("")
+        contact_manager.get_favorite()
+    
+    if opt == 11:
+        print("")
+        nom_ap = input("Ingrese el nombre y apellido del contacto a eliminar: ")
+        print("")
+        contact_manager.remove_favorite_contact(nom_ap)
+
+
+
+
     contact_manager.mostrar_menu()
+
     try:
-        opt = int(input("-->"))
+        opt = int(input("--> "))
     except ValueError:
-        print("Error ingrese una opcion")
+        print("ERROR, ingrese una opcion")
         opt = int(input("--> "))
 print("Nos vemos!")
