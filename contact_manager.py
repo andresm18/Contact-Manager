@@ -21,7 +21,8 @@ def menu():
 	print("11. Remove Favorite Contact")
 	print("12. HTTP Request GET")
 	print("13. HTTP Request POST")
-	print("14. Exit")
+	print("14. Load External File")
+	print("15. Exit")
 
 
 # Función para preguntar si quiere ver el menú de nuevo
