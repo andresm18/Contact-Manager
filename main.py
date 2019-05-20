@@ -25,6 +25,10 @@ while opt != 14:
             except ValueError:
                 print("ERROR, no ingreso numeros")
                 telefono = int(input("Ingrese el telefono: "))
+            else:
+                if telefono < 8:
+                    print("ERROR, numero menor a 8 digitos")
+                    telefono = int(input("Ingrese el telefono: "))   
             print("\n")
             contact_manager.add_contact(nombre, apellido, telefono)    
 
@@ -112,12 +116,7 @@ while opt != 14:
         URL = "https://tinyurl.com/yygujcbg"
         contact_manager.post(URL)
 
-    if opt == 14:
-        print("")
-        exit()
-
     contact_manager.mostrar_menu()
-
     try:
         opt = int(input("--> "))
     except ValueError:
