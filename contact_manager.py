@@ -21,6 +21,7 @@ def menu():
 	print("11. Remove Favorite Contact")
 	print("12. HTTP Request GET")
 	print("13. HTTP Request POST")
+	print("14. Exit")
 
 
 # Función para preguntar si quiere ver el menú de nuevo
@@ -232,9 +233,10 @@ def loadFromFile():
 ##Fase 6
 #GET
 URL = "https://tinyurl.com/yygujcbg"
-gid = input("Ingrese GID: ")
-payload = {"gid":gid}
+
 def get():
+	gid = input("Ingrese GID: ")
+	payload = {"gid":gid}
 	response = requests.get(URL,params= payload)
 	print(response.json())
 # get()

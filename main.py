@@ -8,7 +8,7 @@ except ValueError:
     opt = int(input("--> "))
 
 
-while opt != 14:
+while opt != 15:
     if opt == 1:
         try:
             cant_new_contacts = int(input("\n Ingrese la cantidad de contactos que desea añadir: "))
@@ -58,13 +58,13 @@ while opt != 14:
 
     if opt == 7:
         print("")
-        call_cont = int(input("A que usuario desea llamar? "))
+        call_cont = int(input("A que usuario desea llamar? ingrese el contactID: "))
         contact_manager.call_contact(call_cont)
 
 
     if opt == 8:
         print("")
-        msg_cont = input("A quienes desea enviar un mensaje? ")
+        msg_cont = input("A quienes desea enviar un mensaje? ingrese el contactID: ")
         contact_manager.msg_contact(msg_cont)
 
     if opt == 9:
@@ -100,13 +100,16 @@ while opt != 14:
     if opt == 12:
         print("")
         URL = "https://tinyurl.com/yygujcbg"
-        gid = input("Ingrese GID: ")
         contact_manager.get()
     
     if opt == 13:
         print("")
         URL = "https://tinyurl.com/yygujcbg"
         contact_manager.post()
+
+    if opt == 14:
+        print("")
+        exit()
 
 
 
