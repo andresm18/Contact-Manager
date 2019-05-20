@@ -82,7 +82,7 @@ def remove_contact(nom_ap):
                     if a == b:
                         contactos.pop(b)
         listcontacts()
-    except UnboundLocalError:
+    except UnboundLocalError and IndexError:
         print("\nERROR, usuario no enontrado\n")
         mostrar_menu()
 
@@ -123,7 +123,7 @@ def contact_id():
 		id_contactos[num_id] = i
 		num_id = num_id + 1
 		print("----------------------------")
-		print(num_id,i["Nombre"],",",i["Apellido"],",",i["Telefono"] )
+		print(num_id,i["Nombre"],i["Apellido"],"--> ",i["Telefono"] )
 		print("")
 	
 
@@ -165,24 +165,27 @@ favoritos = []
 
 # Función para añadir contactos a favoritos
 def add_favorite(nombre,apellido,telefono):
-    if nombre == "":
-        print("No hay nombre")
-    nombre.title()
-    if apellido == "":
-        print("No hay apellido")
-    apellido.title()
-    favoritos.append({"Nombre": nombre, "Apellido": apellido, "Telefono" :telefono})
+	if nombre == "":
+		print("No hay nombre")
+	nombre.title()
+	if apellido == "":
+		print("No hay apellido")
+	apellido.title()
+	favoritos.append({"Nombre": nombre, "Apellido": apellido, "Telefono" :telefono})
+	contactos.append({"Nombre": nombre, "Apellido": apellido, "Telefono" :telefono})
 
 
 # Get Favorite (pretty print)
+id_contactos_favoritos = {}
 def get_favorite():
+	num_id_favorites = 0
 	print("Favoritos:")
 	for i in favoritos:
+		id_contactos_favoritos[num_id_favorites] = i
+		num_id_favorites = num_id_favorites + 1
 		print("----------------------------")
-		print(i["Nombre"], i["Apellido"])
-		print(i["Telefono"])
+		print(num_id_favorites, i["Nombre"], i["Apellido"],"--> ", i["Telefono"])
 		print("")
-
 
 
 #Fase 4 
